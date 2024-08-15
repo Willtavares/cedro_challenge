@@ -1,0 +1,45 @@
+{
+    "dinamic": [
+      { "id": 1, "question": "Qual é o comportamento em relação aos seus investimentos", "awswers": ["Preservar meu dinheiro sem correr riscos", "Ganhar mais dinheiro, assumind riscos moderados", "Ganhar mais dinheiro assumindo riscos agressivos"] },
+      { "id": 2, "question": "Por quanto tempo você deseja manter seus investimentos?", "awswers": ["Até 1 ano", "De 1 a 3 anos", "De 4 anos a indeterminado"]  },
+      { "id": 3, "question": "Quantos % desses investimentos você pode precisar em um ano?", "awswers": ["Acima de 75%", "De 26 a 74%", "Até 25%"]  }
+    ],
+    "fixed": {
+        "id": 1,
+        "title": "Qual sua Familiaridade com os tipos de investimentos abaixo?\nLeve em consideração o valor aplicado nos ultims 2 anos.",
+        "items": [{
+            "subtitle": "Titulos de renda fixa ou Tesouro Direto",
+            "options": [
+                {"label": "Nunca Operei", "value": 1},
+                {"label": "Tentei, mas não consegui", "value": 2},
+                {"label": "Já Operei", "value": 3}
+            ]
+            },
+            {
+                "subtitle": "Fundos de Investimento",
+                "options": [
+                    {"label": "Pouco Conhecimento", "value": 1},
+                    {"label": "Já investi", "value": 2},
+                    {"label": "Não entendo como funciona", "value": 3}
+                ]
+            },
+            {
+                "subtitle": "Ações a vista",
+                "options": [
+                    {"label": "Pouco Conhecimento", "value": 1},
+                    {"label": "Já investi", "value": 2},
+                    {"label": "Não entendo como funciona", "value": 3}
+                ]
+            },
+            {
+                "subtitle": "Aluguel de ações, termos, opções e futuros",
+                "options": [
+                    {"label": "Pouco Conhecimento", "value": 1},
+                    {"label": "Já investi", "value": 2},
+                    {"label": "Não entendo como funciona", "value": 3}
+                ]
+            }
+        ]
+    }
+
+  }
