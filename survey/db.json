@@ -1,8 +1,11 @@
 {
-    "dinamic": [
-      { "id": 1, "question": "Qual é o comportamento em relação aos seus investimentos", "awswers": ["Preservar meu dinheiro sem correr riscos", "Ganhar mais dinheiro, assumind riscos moderados", "Ganhar mais dinheiro assumindo riscos agressivos"] },
-      { "id": 2, "question": "Por quanto tempo você deseja manter seus investimentos?", "awswers": ["Até 1 ano", "De 1 a 3 anos", "De 4 anos a indeterminado"]  },
-      { "id": 3, "question": "Quantos % desses investimentos você pode precisar em um ano?", "awswers": ["Acima de 75%", "De 26 a 74%", "Até 25%"]  }
+    "dynamic": [
+      { "id": 1, "question": "Qual é o comportamento em relação aos seus investimentos", "answers": ["Preservar meu dinheiro sem correr riscos", "Ganhar mais dinheiro, assumind riscos moderados", "Ganhar mais dinheiro assumindo riscos agressivos"] },
+      { "id": 2, "question": "Por quanto tempo você deseja manter seus investimentos?", "answers": ["Até 1 ano", "De 1 a 3 anos", "De 4 anos a indeterminado"]  },
+      { "id": 3, "question": "Quantos % desses investimentos você pode precisar em um ano?", "answers": ["Acima de 75%", "De 26 a 74%", "Até 25%"]  },
+      { "id": 4, "question": "Qual é o seu objetivo financeiro ao investir?", "answers": ["Aposentadoria", "Comprar uma casa", "Educação dos filhos"]  },
+      { "id": 5, "question": "Você prefere investir em ativos de renda fixa ou variável?", "answers": ["Renda fixa (ex.: títulos, CDBs)", "Renda variável (ex.: ações, criptomoedas)"]  },
+      { "id": 6, "question": "Você já possui algum conhecimento sobre análise técnica ou fundamentalista?", "answers": ["Sim", "Não", "Um pouco"]  }
     ],
     "fixed": {
         "id": 1,
