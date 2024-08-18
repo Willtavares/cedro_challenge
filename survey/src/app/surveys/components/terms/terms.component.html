@@ -9,9 +9,14 @@
   <hr />
   <form class="flex flex-column align-items-center" [formGroup]="formGroup">
     <div class="flex align-items-center gap-1 py-2">
-      <p-checkbox formControlName="accept" value="accept" inputId="accept" />
+      <p-checkbox formControlName="accept" [binary]="true" inputId="accept" />
       <label for="accept">Li e aceito os termos e condições acima</label>
     </div>
-    <p-button label="Ok, ENTENDI" severity="warning" />
+    <p-button
+      label="Ok, ENTENDI"
+      severity="warning"
+      [disabled]="!formGroup.get('accept').value"
+      (onClick)="endPage()"
+    />
   </form>
 </div>

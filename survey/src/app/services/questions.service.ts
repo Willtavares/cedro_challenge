@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dynamic } from '../model/dynamic.model';
+import { Fixed } from '../model/fixed.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +16,9 @@ export class QuestionsService {
 
   getDynamicQuestions(): Observable<Dynamic> {
     return this.http.get<Dynamic>(this.baseUrl + this.setDynamic);
+  }
+
+  getFixedQuestions(): Observable<Fixed> {
+    return this.http.get<Fixed>(this.baseUrl + this.setFixed);
   }
 }
