@@ -2,12 +2,12 @@ import { Dynamic } from './../../../model/dynamic.model';
 import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from '../../../services/questions.service';
 import {
-  FormArray,
   FormControl,
   FormGroup,
   FormBuilder,
   ReactiveFormsModule,
   AbstractControl,
+  FormsModule,
 } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { Select } from '../../../model/select.model';
@@ -15,6 +15,7 @@ import { Fixed } from '../../../model/fixed.model';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
+import { JsonPrettyPipe } from '../../../pipe/json-pretty.pipe';
 
 @Component({
   selector: 'app-questionnaire',
@@ -24,6 +25,8 @@ import { Router } from '@angular/router';
     DropdownModule,
     RadioButtonModule,
     ButtonModule,
+    JsonPrettyPipe,
+    FormsModule,
   ],
   templateUrl: './questionnaire.component.html',
   styleUrl: './questionnaire.component.scss',
@@ -43,13 +46,7 @@ export class QuestionnaireComponent implements OnInit {
   thirtySubtitle = '';
   fortySubtitle = '';
 
-  questionet: any;
-
-  constructor(
-    private service: QuestionsService,
-    private formBuilder: FormBuilder,
-    private router: Router
-  ) {
+  constructor(private service: QuestionsService, private router: Router) {
     this.createForm();
   }
 
@@ -59,13 +56,15 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   createForm(): void {
-    this.formGroup = this.formBuilder.group<any>(
+    this.formGroup = new FormGroup(
       {
-        questionnaire: this.formBuilder.array([this.buildQuestions()]),
-        optionTreasure: new FormControl<Select | null>(null),
-        optionsFounds: new FormControl<Select | null>(null),
-        optionActions: new FormControl<Select | null>(null),
-        optionGeneric: new FormControl<Select | null>(null),
+        question1: new FormControl(),
+        question2: new FormControl(),
+        question3: new FormControl(),
+        optionTreasure: new FormControl(),
+        optionsFounds: new FormControl(),
+        optionActions: new FormControl(),
+        optionGeneric: new FormControl(),
       },
       {
         validators: this.validateAllFieldsFilled,
@@ -86,9 +85,6 @@ export class QuestionnaireComponent implements OnInit {
     this.service.getDynamicQuestions().subscribe({
       next: (resp) => {
         this.dynamic = this.chooseRandomQuestions(resp, 3);
-        this.dynamic.answers.forEach(() => {
-          this.getQuestions().push(this.buildQuestions());
-        });
       },
       error: (err) => {
         console.log(err);
@@ -130,16 +126,6 @@ export class QuestionnaireComponent implements OnInit {
     }
 
     return shuffledArray.slice(0, count);
-  }
-
-  getQuestions() {
-    return this.formGroup.get('questionnaire') as FormArray;
-  }
-
-  buildQuestions() {
-    return this.formBuilder.group({
-      question: new FormControl(),
-    });
   }
 
   saveData() {
